@@ -55,3 +55,19 @@ jobs:
           path: app/src/bin/Release/net9.0/publish/app.zip
           if-no-files-found: error
 
+  deploy-aws:
+    needs: build
+    environment: aws
+    runs-on: ubuntu-latest
+    steps:
+      - name: HelloWorld
+        run: echo helloWorld
+  
+  deploy-prod:
+    needs: build
+    environment: production
+    runs-on: ubuntu-latest
+    steps:
+      - name: HelloWorld
+        run: echo helloWorld
+
